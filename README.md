@@ -17,34 +17,17 @@ The Quarto Progress Bar is a Lua script designed to display the reading progress
 
 ## Installation
 
-1. Save the Lua script as `progress.lua` in your Quarto project directory.
+Quarto Progress Bar is distributed on GitHub which means you can install it directly into your project by running:
 
-    ```lua
-    return {
-      ['progress'] = function(args, kwargs, meta)
-        local pages = pandoc.utils.stringify(meta["pages"])
-        if (pages == nil or pages == "") 
-        then
-          pages = 0
-        end
+```shell
+quarto add errbufferoverfl/quarto-progress-bar
+```
 
-        local page = pandoc.utils.stringify(meta["page"])
-        if (page == nil or page == "") 
-        then
-          page = 0
-        end
+By default, the extension will be installed from the `HEAD` of the `main` branch, however, you can target tags and/or branches by including an @ after the repository name.
 
-        return pandoc.RawBlock("html", "<progress max=" .. pages .. " value=" .. page .."></progress><p>Progress: " .. page .. "/" .. pages .. " pages<p>")
-      end
-    }
-    ```
-
-2. In your Quarto project, include the Lua filter by adding it to your `_quarto.yml` file:
-
-    ```yaml
-    filters:
-      - progress-bar.lua
-    ```
+```shell
+quarto add errbufferoverfl/quarto-progress-bar@v1.0
+```
 
 ## Usage
 
