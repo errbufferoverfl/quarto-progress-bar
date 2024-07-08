@@ -3,3 +3,4 @@
 *_files/
 /.luarc.json
 .idea/
+.DS_Store
